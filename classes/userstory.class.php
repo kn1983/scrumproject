@@ -4,7 +4,7 @@ class Userstory {
 	}
 	public function createUserStory(){
 		$cleanArgs = array();
-		if(isset($_POST['name'], $_POST['description'], $_POST['estimated_time'], $_POST['elapsed_time'], $_POST['created_date'], $_POST['checkout_by'], $_POST['checkout_date'], $_POST['project_id'])){
+		if(isset($_POST['name'], $_POST['description'], $_POST['estimated_time'], $_POST['elapsed_time'], $_POST['created_date'], $_POST['project_id'])){
 			foreach($_POST as $key => $val){
 				$cleanArgs[$key] = $this->cleanArg($val);
 			}
