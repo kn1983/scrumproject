@@ -11,7 +11,7 @@ class Database {
 	}
 
 	private function openConnection() {
-		$this->connection = mysql_connect(DB_SERVER, DB_USER);
+		$this->connection = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD);
 		if (!$this->connection) {
 			die('Database connection failed ' . mysql_error());
 		}

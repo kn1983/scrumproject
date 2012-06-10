@@ -1,24 +1,30 @@
-/*
-Navicat MySQL Data Transfer
+-- phpMyAdmin SQL Dump
+-- version 3.3.9.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jun 10, 2012 at 04:49 PM
+-- Server version: 5.5.9
+-- PHP Version: 5.3.6
 
-Source Server         : Localhost
-Source Server Version : 50516
-Source Host           : localhost:3306
-Source Database       : valeu_backlog
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
-Target Server Type    : MYSQL
-Target Server Version : 50516
-File Encoding         : 65001
 
-Date: 2012-06-05 11:29:48
-*/
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-SET FOREIGN_KEY_CHECKS=0;
+--
+-- Database: `scrumproject`
+--
 
--- ----------------------------
--- Table structure for `project`
--- ----------------------------
-DROP TABLE IF EXISTS `project`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
 CREATE TABLE `project` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -28,35 +34,41 @@ CREATE TABLE `project` (
   `created_date` date NOT NULL,
   `customer` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- ----------------------------
--- Records of project
--- ----------------------------
+--
+-- Dumping data for table `project`
+--
 
--- ----------------------------
--- Table structure for `status`
--- ----------------------------
-DROP TABLE IF EXISTS `status`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
 CREATE TABLE `status` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
--- ----------------------------
--- Records of status
--- ----------------------------
-INSERT INTO `status` VALUES ('1', 'ToDo');
-INSERT INTO `status` VALUES ('2', 'Ongoing');
-INSERT INTO `status` VALUES ('3', 'Done');
-INSERT INTO `status` VALUES ('4', 'Blocked');
-INSERT INTO `status` VALUES ('5', 'Unexpected');
+--
+-- Dumping data for table `status`
+--
 
--- ----------------------------
--- Table structure for `user`
--- ----------------------------
-DROP TABLE IF EXISTS `user`;
+INSERT INTO `status` VALUES(1, 'ToDo');
+INSERT INTO `status` VALUES(2, 'Ongoing');
+INSERT INTO `status` VALUES(3, 'Done');
+INSERT INTO `status` VALUES(4, 'Blocked');
+INSERT INTO `status` VALUES(5, 'Unexpected');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
 CREATE TABLE `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -64,16 +76,19 @@ CREATE TABLE `user` (
   `email` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- ----------------------------
--- Records of user
--- ----------------------------
+--
+-- Dumping data for table `user`
+--
 
--- ----------------------------
--- Table structure for `user_story`
--- ----------------------------
-DROP TABLE IF EXISTS `user_story`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_story`
+--
+
 CREATE TABLE `user_story` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -83,9 +98,11 @@ CREATE TABLE `user_story` (
   `created_date` date NOT NULL,
   `checkout_by` varchar(255) DEFAULT NULL,
   `checkout_date` date DEFAULT NULL,
+  `project_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
--- ----------------------------
--- Records of user_story
--- ----------------------------
+--
+-- Dumping data for table `user_story`
+--
+
