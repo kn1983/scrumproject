@@ -26,7 +26,7 @@ class Database {
 			$args['estimated_time'] = 'NULL';
 		}
 		$query = "INSERT INTO user_story
-			VALUES (NULL, '{$args['name']}', '{$args['description']}', {$args['estimated_time']}, NULL, NOW(), NULL, NULL)";
+			VALUES (NULL, '{$args['name']}', '{$args['description']}', {$args['estimated_time']}, NULL, NOW(), NULL, NULL, {$args['project_id']})";
 		mysql_query($query) or die(mysql_error());
 	}
 

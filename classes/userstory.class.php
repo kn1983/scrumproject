@@ -5,12 +5,14 @@ class Userstory {
 	}
 	public function createUserStory(){
 		$cleanArgs = array();
-		if(isset($_POST['name'], $_POST['description'], $_POST['estimated_time'])){
-			foreach($_POST as $key => $val){
-				$cleanArgs[$key] = $this->cleanArg($val);
+		if(isset($_POST['name'], $_POST['description'], $_POST['estimated_time'], $_POST['project_id'])){
+			if(is_numeric($_POST['estimated_time']) && is_numeric($_POST['project_id'])){
+				foreach($_POST as $key => $val){
+					$cleanArgs[$key] = $this->cleanArg($val);
+				}
+				$db = new Database();
+				$db->insertUserStory($cleanArgs);
 			}
-			$db = new Database();
-			$db->insertUserStory($cleanArgs);
 		}
 	}
 	private function cleanArg($arg){
