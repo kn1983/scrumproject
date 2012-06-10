@@ -13,6 +13,8 @@
  * @version 1.0
  */
 
+require_once('database.class.php');
+
 class Project {
     /** @var int project id */
     var $id;
@@ -25,7 +27,7 @@ class Project {
     /** @var int estimated_time */
     var $estimated_time;
     /** @var date create_date */
-    var $create_date;
+    var $created_date;
     /** @var vachar customer */
     var $customer;
     
@@ -43,7 +45,7 @@ class Project {
         $this->description = "";
         $this->deadline = 0;
         $this->estimated_time = 0;
-        $this->create_date = 0;
+        $this->created_date = 0;
         $this->customer = "";
     }
     
@@ -61,7 +63,8 @@ class Project {
      *   
      */
     
-    function select_project_fields() {
+    private function select_project_fields($id) {
+        
         
     }
 
@@ -71,29 +74,54 @@ class Project {
      *  
      */
     
-    function update_project() {
+    public function update_project($id) {
         
     }
     
     /**
-     * Function to create new project 
-     *  
+     * @param type $cleanArgs
+     * @return clean array of args to database.class  
      */
     
-    function create_project() {
+    public function create_project() {
+        $cleanArgs = array();
+        if(isset($_POST['name'], $_POST['description'], $_POST['deadline'], $_POST['estimated_time'], $_POST['customer'])){
+            if(is_numeric($_POST['estimated_time']) && is_numeric($_POST['deadline'])){
+                    foreach($_POST as $key => $val){
+                            $cleanArgs[$key] = $this->cleanArg($val);
+                    }
+                    $db = new Database();
+                    $db->insertProject($cleanArgs);
+            }
+        }
         
     }
     
     /**
-     * Function to delete project from the system
-     *  
+     * @param $this->id 
+     * @return project id to be deleted
      */
     
-    function delete_project(){
-        
+    public function delete_project(){
+        if (isset($_POST['delete_project']) && $_POST['id']){
+           if(is_numeric($_POST['id'])){
+              $_POST['id'] = $this->id;
+              $db = new Database();
+              $db->deleteProject($this->id);
+           } 
+        }
     }
     
+    /**
+     *
+     * @param type $arg
+     * @return type array $cleanArgs 
+     */
     
-    
+    private function cleanArg($arg){
+		$cleanArg = strip_tags($arg);
+		$cleanArg = mysql_real_escape_string($arg);
+		return $cleanArg;
+    }    
 }
 ?>

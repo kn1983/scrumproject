@@ -30,7 +30,11 @@ class Database {
 		mysql_query($query) or die(mysql_error());
 	}
 
-	// public function insertProject($args) {
+	 public function insertProject($args) {
 		
-	// }
+	 }
+         
+	 public function deleteProject($project_id) {
+		
+	 }
 }
