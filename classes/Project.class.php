@@ -113,7 +113,8 @@ class Project {
     }
     public function viewProjects(){
         $db = new Database();   
-        
+        $projects = $db->selectProjects();
+        return $projects;
     }
     
     /**
