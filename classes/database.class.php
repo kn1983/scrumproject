@@ -30,6 +30,28 @@ class Database {
 		mysql_query($query) or die(mysql_error());
 	}
 
+	public function getUserStory($project_id) {
+		$query = "SELECT * FROM user_story
+			WHERE project_id = $project_id";
+		$stories = mysql_query($query) or die(mysql_error());
+		$user_stories = array();
+		while ($row = mysql_fetch_assoc($stories)) {
+        	array_push($user_stories,
+    			array(
+	        		'id' => $row['id'],
+	        		'name' => $row['name'],
+	        	    'description' => $row['description'],
+	        	    'estimated_time' => $row['estimated_time'],
+	        		'elapsed_time' => $row['elapsed_time'],
+	            	'created_date' => $row['created_date'],
+	        	    'checkout_by' => $row['checkout_by'],
+	                'checkout_date' => $row['checkout_date']
+    			)
+    		);
+		}
+		return $user_stories;
+	}
+
 	 public function insertProject($args) {
 		if (isset($args['estimated_time']) && !$args['estimated_time']) {
 			$args['estimated_time'] = 'NULL';
