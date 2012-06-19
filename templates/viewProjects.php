@@ -1,7 +1,6 @@
 <?php
 $project = new Project();
 $projects = $project->viewProjects();
-print_r($projects);	
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +11,9 @@ print_r($projects);
 	<body>
 		<h1>Projects</h1>
 		<ul>
-			<li><a href="#">Lorem ipsum</a></li>
+			<?php while($row = mysql_fetch_assoc($projects)): ?>
+				<li><a href="?project=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a></li>
+			<?php endwhile ?>
 		</ul>
 	</body>
 </html>

@@ -61,10 +61,15 @@ class Database {
 		mysql_query($query) or die(mysql_error());
 	 }
 
-	 public function selectProjects($args){
-	 	return "test";
-	 	// $query = "SELECT * FROM projects";
-	 	// return mysql_query($query) or die(mysql_error());
+	 public function selectProjects(){
+	 	$query = "SELECT * FROM project";
+	 	$result = mysql_query($query) or die(mysql_error());
+	 	if($result){
+	 		return $result;
+	 		// while($row = mysql_fetch_assoc($result)){
+	 		// 	print_r($row);
+	 		// }
+	 	}
 	 }
          
 	 public function deleteProject($project_id) {
