@@ -111,6 +111,10 @@ class Project {
            } 
         }
     }
+    public function viewProjects(){
+        $db = new Database();   
+        
+    }
     
     /**
      *

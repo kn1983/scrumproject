@@ -31,7 +31,18 @@ class Database {
 	}
 
 	 public function insertProject($args) {
-		
+		if (isset($args['estimated_time']) && !$args['estimated_time']) {
+			$args['estimated_time'] = 'NULL';
+		}
+		$query = "INSERT INTO project (name, description, deadline, estimated_time, created_date, customer)
+			VALUES ('{$args['name']}', '{$args['description']}', {$args['deadline']}, {$args['estimated_time']}, NOW(), '{$args['customer']}')";
+		mysql_query($query) or die(mysql_error());
+	 }
+
+	 public function selectProjects($args){
+	 	return "test";
+	 	// $query = "SELECT * FROM projects";
+	 	// return mysql_query($query) or die(mysql_error());
 	 }
          
 	 public function deleteProject($project_id) {
