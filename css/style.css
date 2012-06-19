@@ -1,0 +1,17 @@
+#main-menu{
+	width:100%;
+	height:30px;
+	background-color:#999;
+}
+
+#main-menu ul{
+	margin: 0;
+	padding: 0;
+}
+
+#main-menu ul li{
+	display: inline;
+	height: 30px;
+	float: left;
+	list-style: none;
+}
