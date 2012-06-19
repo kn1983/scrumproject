@@ -16,8 +16,10 @@ function __autoload($class_name){
 				<a href="index.php">VALUE</a>
 			</div>
 			<ul id="main-menu">
+				<li><a href="home.php?page=home">Home</a></li>
 				<li><a href="index.php?page=createproject">Create project</a></li>
 				<li><a href="index.php?page=projects">View projects</a></li>
+				<li><a href="#">Log Out</a></li>
 			</ul>
 		</div>
 		<div id="content">
