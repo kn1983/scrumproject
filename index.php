@@ -24,18 +24,20 @@ function __autoload($class_name){
 			<?php
 			if(isset($_GET['page'])){
 				$page = $_GET['page'];
-
-				switch($page){
-					case 'createproject':
-						require_once('templates/createProject.php');
-						break;
-					case 'projects';
-						require_once('templates/viewProjects.php');
-						break;
-					default:
-						echo 'Default page';
-				}
+			} else {
+				$page = '';
 			}
+
+			switch($page){
+				case 'createproject':
+					require_once('templates/createProject.php');
+					break;
+				case 'projects';
+					require_once('templates/viewProjects.php');
+					break;
+				default:
+					echo 'Default page';
+				}
 
 			?>
 		</div>
