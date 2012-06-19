@@ -7,19 +7,25 @@ function __autoload($class_name){
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Value</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>Value Backlog</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	</head>
 	<body>
-		<div id="header">
-			<div class="site-logo">
-				<a href="index.php">VALUE</a>
+		<div id="wrapper">
+			<div id="site-logo">
+				<a href="index.php">
+					<img id="logo" src="images/logo.png" alt="logo" />
+				</a>
 			</div>
+			<nav>
 			<ul id="main-menu">
+				<li><a href="index.php?page=home">Home</a></li>
 				<li><a href="index.php?page=createproject">Create project</a></li>
 				<li><a href="index.php?page=projects">View projects</a></li>
+				<li><a href="index.php?page=logout">Log Out</a></li>
 			</ul>
-		</div>
+			</nav>
 		<div id="content">
 			<?php
 			if(isset($_GET['page'])){
@@ -43,6 +49,7 @@ function __autoload($class_name){
 			}
 
 			?>
+			</div>
 		</div>
 	</body>
 </html>
