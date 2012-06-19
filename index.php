@@ -35,9 +35,12 @@ function __autoload($class_name){
 				case 'projects';
 					require_once('templates/viewProjects.php');
 					break;
+				case 'createuserstory';
+					require_once('templates/createUserStory.php');
+					break;
 				default:
 					echo 'Default page';
-				}
+			}
 
 			?>
 		</div>
