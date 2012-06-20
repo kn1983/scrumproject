@@ -7,6 +7,7 @@ function __autoload($class_name){
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<title>Value Backlog</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -45,7 +46,6 @@ function __autoload($class_name){
 					require_once('templates/createUserStory.php');
 					break;
 				default:
-					echo 'Default page';
 			}
 
 			?>
